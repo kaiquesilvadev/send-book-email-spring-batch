@@ -1,6 +1,7 @@
 package com.kaique.springbatchemail.processor;
 
 import org.springframework.batch.item.ItemProcessor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,13 +14,16 @@ import com.sendgrid.helpers.mail.objects.Email;
 @Configuration
 public class ProcessLoanNotificationEmailProcessorConfig {
 	
+	@Value("${gmail.sendGrid}")
+	private String gmail;
+	
 	@Bean
 	public ItemProcessor<UserBookLoan, Mail> processLoanNotificationEmailProcessor() {
 		return new ItemProcessor<UserBookLoan, Mail>() {
 
 			@Override
 			public Mail process(UserBookLoan loan) throws Exception {				
-				Email from = new Email("alexandre.si.ufu@gmail.com", "Biblioteca Municipal");
+				Email from = new Email(gmail , "Biblioteca Municipal");
 				Email to = new Email(loan.getUser().getEmail());
 				Content content = new Content("text/plain", generateEmailText(loan));
 				Mail mail = new Mail(from, "Notificaçao devoluçao livro", to, content);
