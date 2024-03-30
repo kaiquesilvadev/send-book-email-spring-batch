@@ -15,13 +15,14 @@ import org.springframework.jdbc.core.RowMapper;
 import com.kaique.springbatchemail.entities.Book;
 import com.kaique.springbatchemail.entities.User;
 import com.kaique.springbatchemail.entities.UserBookLoan;
+import com.kaique.springbatchemail.util.GenerateBookReturnDate;
 
 
 
 @Configuration
 public class ReadUsersWithLoansCloseToReturnReaderConfig {
 
-	int numDaysToNotifyReturn = 6;
+	int numDaysToNotifyReturn = GenerateBookReturnDate.numDaysToReturnBook - 1;
 
 	@Bean
 	public ItemReader<UserBookLoan> readUsersWithLoansCloseToReturnReader(@Qualifier("appDS") DataSource dataSource) {
