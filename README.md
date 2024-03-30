@@ -3,7 +3,33 @@
 
 #### Antes de começar
 
-- [Using Docker Compose with MySQL and phpMyAdmin](https://github.com/devsuperior/docker-compose-mysql)
+>  Docker Compose
+
+MySQL 8.0 e phpMyAdmin
+
+Script:
+
+https://github.com/kaiquesilvadev/user-request-spring-batch/blob/main/docker-compose.yml
+
+Subir a estrutura:
+
+``` 
+docker-compose up -d
+```
+
+Parar a estrutura:
+```
+docker-compose down
+```
+#### Dados de conexão para o phpMyAdmin
+- Server: mysql-docker
+- Usuário: root / user
+- Senha: 1234567
+
+#### Dados de conexão para o MySQL Workbench
+- Host: 127.0.0.1
+- Porta: 3307
+- Usuário: root / user
 
 ### Etapas do Spring Batch:
 
