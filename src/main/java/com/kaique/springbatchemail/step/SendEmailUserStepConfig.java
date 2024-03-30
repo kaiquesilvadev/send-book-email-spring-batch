@@ -11,9 +11,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
-import com.sendgrid.helpers.mail.objects.Email;
 
 import com.kaique.springbatchemail.entities.UserBookLoan;
+import com.sendgrid.helpers.mail.Mail;
 
 @Configuration
 public class SendEmailUserStepConfig {
